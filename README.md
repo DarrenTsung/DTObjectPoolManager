@@ -1,0 +1,2 @@
+# DTObjectPoolManager
+Object pooling framework
