@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using DTObjectPoolManager.Internal;
 
@@ -59,6 +60,9 @@ namespace DTObjectPoolManager {
 
 			if (parent != null) {
 				instantiatedPrefab.transform.SetParent(parent.transform, worldPositionStays);
+			} else {
+				instantiatedPrefab.transform.SetParent(null);
+				SceneManager.MoveGameObjectToScene(instantiatedPrefab, SceneManager.GetActiveScene());
 			}
 
 			RecyclablePrefab recycleData = instantiatedPrefab.GetOrAddComponent<RecyclablePrefab>();
